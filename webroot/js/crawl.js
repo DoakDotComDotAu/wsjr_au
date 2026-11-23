@@ -75,9 +75,9 @@ function crawlKickOff() {
                 $('#date-time').fadeIn(0)
                 $('#marqueeholder').fadeOut(0)
                 if (weatherData.currentConditions.feelslike == weatherData.currentConditions.temp) {
-                    $('#lowerinfotext').text('Temp:  ' + weatherData.currentConditions.temp + '°F   ')
+                    $('#lowerinfotext').text('Temp:  ' + weatherData.currentConditions.temp + '°C   ')
                 } else {
-                    $('#lowerinfotext').text('Temp:  ' + weatherData.currentConditions.temp + '°F   ' + weatherData.currentConditions.feelsliketype + weatherData.currentConditions.feelslike + '°F')
+                    $('#lowerinfotext').text('Temp:  ' + weatherData.currentConditions.temp + '°C   ' + weatherData.currentConditions.feelsliketype + weatherData.currentConditions.feelslike + '°C')
                 }
                 setTimeout(function() {
                     crawlCallBack()
@@ -87,7 +87,7 @@ function crawlKickOff() {
                 $('#lowerinfotext').fadeIn(0)
                 $('#date-time').fadeIn(0)
                 $('#marqueeholder').fadeOut(0)
-                $('#lowerinfotext').text('Humidity:  ' + weatherData.currentConditions.humidity + '%  ' + 'Dewpoint: ' + weatherData.currentConditions.dewpoint + '°F')
+                $('#lowerinfotext').text('Humidity:  ' + weatherData.currentConditions.humidity + '%  ' + 'Dewpoint: ' + weatherData.currentConditions.dewpoint + '°C')
                 setTimeout(function() {
                     crawlCallBack()
                 }, lowerDetailLength);
@@ -108,7 +108,7 @@ function crawlKickOff() {
                 if (weatherData.currentConditions.wind == "Calm") {
                     $('#lowerinfotext').text('Wind: Calm')
                 } else {
-                    $('#lowerinfotext').text('Wind: ' + windWordSpacing(weatherData.currentConditions.wind) + " " + weatherData.currentConditions.windspeed + ' MPH')
+                    $('#lowerinfotext').text('Wind: ' + windWordSpacing(weatherData.currentConditions.wind) + " " + weatherData.currentConditions.windspeed + ' KM/H')
                 }
                 setTimeout(function() {
                     crawlCallBack()
@@ -119,9 +119,9 @@ function crawlKickOff() {
                 $('#date-time').fadeIn(0)
                 $('#marqueeholder').fadeOut(0)
                 if (weatherData.currentConditions.ceiling != null) {
-                    $('#lowerinfotext').text('Visib: ' + weatherData.currentConditions.visibility + ' mi. ' + 'Ceiling: ' + weatherData.currentConditions.ceiling +' ft.')
+                    $('#lowerinfotext').text('Visib: ' + weatherData.currentConditions.visibility + ' km. ' + 'Ceiling: ' + weatherData.currentConditions.ceiling +' m.')
                 } else {
-                    $('#lowerinfotext').text('Visib: ' + weatherData.currentConditions.visibility + ' mi. ' + 'Ceiling:Unlimited')
+                    $('#lowerinfotext').text('Visib: ' + weatherData.currentConditions.visibility + ' km. ' + 'Ceiling:Unlimited')
                 }
                 setTimeout(function() {
                     crawlCallBack()

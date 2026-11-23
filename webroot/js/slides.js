@@ -29,25 +29,25 @@ function slideKickOff() {
                 let monthname = month[d.getMonth()];
                 
                 $('.info-cc .current-condition').text(weatherData.currentConditions.cond);
-                $('.info-cc .current-temperature').text(weatherData.currentConditions.temp + '°F                     ');
+                $('.info-cc .current-temperature').text(weatherData.currentConditions.temp + '°C                     ');
                 if (weatherData.currentConditions.feelslike != weatherData.currentConditions.temp) {
 					$('.info-cc .text-windchill').text('               ' + weatherData.currentConditions.feelsliketype);
-                    $('.info-cc .current-windchill').text(weatherData.currentConditions.feelslike + '°F ');
+                    $('.info-cc .current-windchill').text(weatherData.currentConditions.feelslike + '°C ');
 				} else {
 					$('.info-cc .text-windchill').text('');
                     $('.info-cc .current-windchill').text('');
 				};
                 $('.info-cc .current-humidity').text(weatherData.currentConditions.humidity + '%                  ');
-                $('.info-cc .current-dewpoint').text(weatherData.currentConditions.dewpoint + '°F ');
+                $('.info-cc .current-dewpoint').text(weatherData.currentConditions.dewpoint + '°C ');
                 $('.info-cc .current-pressure').text('                     ' + weatherData.currentConditions.pressure + ' ' + weatherData.currentConditions.pressureTrend);
                 if (weatherData.currentConditions.wind == "Calm") {
                     $('.info-cc .current-wind').text('      ' + "Calm");
                 } else {
-                    $('.info-cc .current-wind').text('      ' + windWordSpacing(weatherData.currentConditions.wind) + " " + weatherData.currentConditions.windspeed + ' MPH');
+                    $('.info-cc .current-wind').text('      ' + windWordSpacing(weatherData.currentConditions.wind) + " " + weatherData.currentConditions.windspeed + ' KM/H');
                 }
-                $('.info-cc .current-visibility').text(weatherData.currentConditions.visibility + ' mi.                  ');
+                $('.info-cc .current-visibility').text(weatherData.currentConditions.visibility + ' km.                  ');
                 if (weatherData.currentConditions.ceiling != null) {
-					$('.info-cc .current-ceiling').text(weatherData.currentConditions.ceiling +' ft.')
+					$('.info-cc .current-ceiling').text(weatherData.currentConditions.ceiling +' m.')
 				} else {
 					$('.info-cc .current-ceiling').text('Unlimited')
 				};
@@ -126,7 +126,7 @@ function slideKickOff() {
                 }
                 $('#slide-title-text').css('font-family', 'smallfont');
                 $('#slide-title-text').css('line-height', '60px');
-                $('#slide-title-text').text('        Your TWC Forecast');
+                $('#slide-title-text').text('        Your TTC Forecast');
                 if (alerttext == "") {
 					setTimeout(() => {dtimeOne()}, 1);
                     //dtimeOne()
@@ -261,12 +261,12 @@ function slideKickOff() {
                 $('.almanac .header .header-2').text('                       '+formatDayName(weatherData.almanac.tomorrow));
                 $('.almanac .day-1-info .sunrise').text(weatherData.almanac.sunrisetoday+'           ');
                 $('.almanac .day-1-info .sunset').text(weatherData.almanac.sunsettoday+'           ');
-                $('.almanac .day-1-info .low').text(weatherData.almanac.avglowtoday + ' °F           ');
-                $('.almanac .day-1-info .high').text(weatherData.almanac.avghightoday + ' °F           ');
+                $('.almanac .day-1-info .low').text(weatherData.almanac.avglowtoday + ' °C           ');
+                $('.almanac .day-1-info .high').text(weatherData.almanac.avghightoday + ' °C           ');
                 $('.almanac .day-2-info .sunrise').text(weatherData.almanac.sunrisetomorow + ' ');
                 $('.almanac .day-2-info .sunset').text(weatherData.almanac.sunsettomorrow + ' ');
-                $('.almanac .day-2-info .low').text(weatherData.almanac.avglowtomorrow + ' °F ');
-                $('.almanac .day-2-info .high').text(weatherData.almanac.avghightomorow + ' °F ');
+                $('.almanac .day-2-info .low').text(weatherData.almanac.avglowtomorrow + ' °C ');
+                $('.almanac .day-2-info .high').text(weatherData.almanac.avghightomorow + ' °C ');
                 $('.almanac .normal-precip').text('Normal ' + almonthname + ' Precip');
                 if (weatherData.almanac.normalprecip == null) {
                     $('.almanac .normal-precip-info').text('No Report')
@@ -298,22 +298,22 @@ function slideKickOff() {
                   slideCallBack()
                 }, slideLength);
             }
-            ,regionalConditions() {
-                $('#slide-title-text').css('font-family', 'mainfont');
-                $('#slide-title-text').css('line-height', '90px');
-                $('#slide-title-text').text('  Conditions Across The Region');
-                for (let i = 0; i < locationConfig.regionalCities.citiesAmount; i++) {
-                    let l = i+1
-                    $('.regional-conditions .cities .city-'+l).text(locReplace(weatherData.regionalConditions.cities[i].cityname).substring(0,15) + ", " + weatherData.regionalConditions.cities[i].statename);
-					$('.regional-conditions .temps .temp-'+l).text(weatherData.regionalConditions.cities[i].temp)
-                    $('.regional-conditions .weathers .weather-'+l).text('                    '+condReplace(weatherData.regionalConditions.cities[i].condition));
-                }
-                $('.regional-conditions').fadeIn(0);
-                setTimeout(function() {
-                  $('.regional-conditions').fadeOut(0);
-                  slideCallBack()
-                }, slideLength);
-            }
+//            ,regionalConditions() {
+//                $('#slide-title-text').css('font-family', 'mainfont');
+//                $('#slide-title-text').css('line-height', '90px');
+//                $('#slide-title-text').text('  Conditions Across The Region');
+//                for (let i = 0; i < locationConfig.regionalCities.citiesAmount; i++) {
+//                    let l = i+1
+//                    $('.regional-conditions .cities .city-'+l).text(locReplace(weatherData.regionalConditions.cities[i].cityname).substring(0,15) + ", " + weatherData.regionalConditions.cities[i].statename);
+//					$('.regional-conditions .temps .temp-'+l).text(weatherData.regionalConditions.cities[i].temp)
+//                  $('.regional-conditions .weathers .weather-'+l).text('                    '+condReplace(weatherData.regionalConditions.cities[i].condition));
+//                }
+//                $('.regional-conditions').fadeIn(0);
+//                setTimeout(function() {
+//                  $('.regional-conditions').fadeOut(0);
+//                  slideCallBack()
+//                }, slideLength);
+//            }
             ,outlook() {
                 $('#slide-title-text').css('line-height', '90px');
                 $('#slide-title-text').css('font-family', 'mainfont');
